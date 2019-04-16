@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Conta.Reporte {
+namespace Contabilidad.Reporte {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;

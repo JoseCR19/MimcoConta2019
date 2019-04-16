@@ -62,7 +62,7 @@ namespace Conta.LibrosContables
             else
             {
                 btn_excel.Enabled = false;
-                Conta.Reporte.LibroMayorReporteExcel cr = new Conta.Reporte.LibroMayorReporteExcel();
+                Contabilidad.Reporte.LibroMayorReporteExcel cr = new Contabilidad.Reporte.LibroMayorReporteExcel();
                 cr.SetDataSource(LibroMayorCajaBanco.objListaLibroMayorCajaBanco);
                 ExportOptions exportOpts = new ExportOptions();
                 ExcelFormatOptions excelFormatOpts = new ExcelFormatOptions();
