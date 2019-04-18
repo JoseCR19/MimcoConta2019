@@ -117,7 +117,7 @@ namespace Conta.LibrosContables
         private void btn_Cargar_Click(object sender, EventArgs e)
         {
             objListaLibroMayorCajaBanco = objAsientoDao.getLibroMayorCajaBanco(cmb_Moneda.SelectedValue.ToString(),
-                cmb_Mes.SelectedValue.ToString(),objAsientoDao.convertToDouble( txt_Cuenta1.Text), objAsientoDao.convertToDouble(txt_Cuenta2.Text));
+                cmb_Mes.SelectedValue.ToString(), txt_Cuenta1.Text, txt_Cuenta2.Text);
             ReporteLibroMayorCajaBanco check = new ReporteLibroMayorCajaBanco();
             check.Show();
             this.Hide();

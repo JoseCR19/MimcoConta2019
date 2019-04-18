@@ -60,6 +60,34 @@ namespace ContaDAO
             }
             return objList;
         }
+        public List<AsientoDetalle> getGenerarDetalleCentroCosto(String serie, String numero)
+        {
+            List<AsientoDetalle> objList = new List<AsientoDetalle>();
+            AsientoDetalle obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            /*procedimiento almacenado*/
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_GenerarAsientoVentaCentroCosto",
+                   new object[] { serie, numero });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new AsientoDetalle();
+                    obj.Cuenta = dataReader["Cuenta"].ToString();
+                    obj.TipoImporte = dataReader["TipoImporte"].ToString();
+                    obj.Importe = convertToDouble(dataReader["Importe"].ToString());
+                    obj.TipoDoc = dataReader["TipDoc"].ToString();
+                    obj.Fecha = dataReader["Fecha"].ToString();
+                    obj.Documento = dataReader["Documento"].ToString();
+                    obj.FechaVcto = dataReader["FechaVcto"].ToString();
+                    obj.TipDocCodigo = dataReader["DocCod"].ToString();
+                    obj.TipoAsiento = "05";
+                    obj.Anexo = "";
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
         public List<AsientoDetalle> getGenerarDetalleCompra(String numeroRegistro)
         {
             List<AsientoDetalle> objList = new List<AsientoDetalle>();
@@ -299,7 +327,7 @@ namespace ContaDAO
             }
             return objList;
         }
-        public List<LibroDiario> getLibroMayorCajaBanco(String moneda, String mes, Double cuenta1, Double cuenta2)
+        public List<LibroDiario> getLibroMayorCajaBanco(String moneda, String mes, String cuenta1, String cuenta2)
         {
             List<LibroDiario> objList = new List<LibroDiario>();
             LibroDiario obj;
