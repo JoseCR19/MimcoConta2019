@@ -134,10 +134,10 @@ namespace Conta.LibrosContables
         private void btn_Cargar_Click(object sender, EventArgs e)
         {
            objListaLibroDiario = objAsientoDao.getLibroDiario(cmb_Moneda.SelectedValue.ToString(),cmb_Subdiario1.SelectedValue.ToString(),
-               cmb_Subdiario2.SelectedValue.ToString(),cmb_Mes.SelectedValue.ToString());
-            ReporteLibroDiario check = new ReporteLibroDiario();
-            check.Show();
-            this.Hide();
+           cmb_Subdiario2.SelectedValue.ToString(),cmb_Mes.SelectedValue.ToString());
+           ReporteLibroDiario check = new ReporteLibroDiario();
+           check.Show();
+           this.Hide();
         }
     }
 }

@@ -54,6 +54,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btn_Cerrar = new System.Windows.Forms.Button();
             this.btn_SaveData = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txt_descripcion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Facturas)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -198,6 +200,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txt_descripcion);
+            this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.txt_Tipo);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label5);
@@ -332,6 +336,25 @@
             this.btn_SaveData.UseVisualStyleBackColor = true;
             this.btn_SaveData.Click += new System.EventHandler(this.btn_SaveData_Click);
             // 
+            // label11
+            // 
+            this.label11.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label11.Location = new System.Drawing.Point(11, 99);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 13);
+            this.label11.TabIndex = 46;
+            this.label11.Text = "Descripción :";
+            // 
+            // txt_descripcion
+            // 
+            this.txt_descripcion.Location = new System.Drawing.Point(99, 96);
+            this.txt_descripcion.Name = "txt_descripcion";
+            this.txt_descripcion.Size = new System.Drawing.Size(511, 20);
+            this.txt_descripcion.TabIndex = 47;
+            // 
             // AsientoCVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,5 +404,7 @@
         private System.Windows.Forms.TextBox txt_Tipo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btn_Cerrar;
+        private System.Windows.Forms.TextBox txt_descripcion;
+        private System.Windows.Forms.Label label11;
     }
 }
