@@ -34,3 +34,10 @@ G:\Conta\ContaDAO\bin\Debug\ContaDTO.pdb
 G:\Conta\ContaDAO\obj\Debug\ContaDAO.csprojResolveAssemblyReference.cache
 G:\Conta\ContaDAO\obj\Debug\ContaDAO.dll
 G:\Conta\ContaDAO\obj\Debug\ContaDAO.pdb
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDAO\bin\Debug\ContaDAO.dll
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDAO\bin\Debug\ContaDAO.pdb
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDAO\bin\Debug\ContaDTO.dll
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDAO\bin\Debug\ContaDTO.pdb
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDAO\obj\Debug\ContaDAO.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDAO\obj\Debug\ContaDAO.dll
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDAO\obj\Debug\ContaDAO.pdb

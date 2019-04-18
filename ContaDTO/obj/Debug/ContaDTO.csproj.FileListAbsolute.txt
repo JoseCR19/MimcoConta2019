@@ -16,3 +16,8 @@ G:\Conta\ContaDTO\bin\Debug\ContaDTO.dll
 G:\Conta\ContaDTO\bin\Debug\ContaDTO.pdb
 G:\Conta\ContaDTO\obj\Debug\ContaDTO.dll
 G:\Conta\ContaDTO\obj\Debug\ContaDTO.pdb
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDTO\bin\Debug\ContaDTO.dll
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDTO\bin\Debug\ContaDTO.pdb
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDTO\obj\Debug\ContaDTO.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDTO\obj\Debug\ContaDTO.dll
+C:\Users\HP\Documents\GitHub\MimcoConta2019\ContaDTO\obj\Debug\ContaDTO.pdb
