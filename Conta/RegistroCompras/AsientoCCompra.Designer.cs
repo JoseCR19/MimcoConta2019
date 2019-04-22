@@ -41,6 +41,11 @@
             this.txt_Moneda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmb_Documento = new System.Windows.Forms.ComboBox();
+            this.cmb_Cuenta = new System.Windows.Forms.ComboBox();
+            this.btn_Editar = new System.Windows.Forms.Button();
+            this.btn_Add = new System.Windows.Forms.Button();
+            this.btn_Guardar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,11 +57,6 @@
             this.grd_Facturas = new System.Windows.Forms.DataGridView();
             this.btn_Cerrar = new System.Windows.Forms.Button();
             this.btn_SaveData = new System.Windows.Forms.Button();
-            this.btn_Editar = new System.Windows.Forms.Button();
-            this.btn_Add = new System.Windows.Forms.Button();
-            this.btn_Guardar = new System.Windows.Forms.Button();
-            this.cmb_Cuenta = new System.Windows.Forms.ComboBox();
-            this.cmb_Documento = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Facturas)).BeginInit();
@@ -209,6 +209,56 @@
             this.panel2.Size = new System.Drawing.Size(641, 133);
             this.panel2.TabIndex = 46;
             // 
+            // cmb_Documento
+            // 
+            this.cmb_Documento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Documento.Enabled = false;
+            this.cmb_Documento.FormattingEnabled = true;
+            this.cmb_Documento.Location = new System.Drawing.Point(88, 55);
+            this.cmb_Documento.Name = "cmb_Documento";
+            this.cmb_Documento.Size = new System.Drawing.Size(116, 21);
+            this.cmb_Documento.TabIndex = 50;
+            // 
+            // cmb_Cuenta
+            // 
+            this.cmb_Cuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Cuenta.Enabled = false;
+            this.cmb_Cuenta.FormattingEnabled = true;
+            this.cmb_Cuenta.Location = new System.Drawing.Point(271, 31);
+            this.cmb_Cuenta.Name = "cmb_Cuenta";
+            this.cmb_Cuenta.Size = new System.Drawing.Size(116, 21);
+            this.cmb_Cuenta.TabIndex = 49;
+            // 
+            // btn_Editar
+            // 
+            this.btn_Editar.Image = global::Contabilidad.Properties.Resources.editar;
+            this.btn_Editar.Location = new System.Drawing.Point(317, 91);
+            this.btn_Editar.Name = "btn_Editar";
+            this.btn_Editar.Size = new System.Drawing.Size(41, 37);
+            this.btn_Editar.TabIndex = 48;
+            this.btn_Editar.UseVisualStyleBackColor = true;
+            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Image = global::Contabilidad.Properties.Resources.agregar;
+            this.btn_Add.Location = new System.Drawing.Point(248, 91);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(41, 37);
+            this.btn_Add.TabIndex = 47;
+            this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
+            // 
+            // btn_Guardar
+            // 
+            this.btn_Guardar.Image = global::Contabilidad.Properties.Resources.guardar;
+            this.btn_Guardar.Location = new System.Drawing.Point(382, 91);
+            this.btn_Guardar.Name = "btn_Guardar";
+            this.btn_Guardar.Size = new System.Drawing.Size(41, 37);
+            this.btn_Guardar.TabIndex = 46;
+            this.btn_Guardar.UseVisualStyleBackColor = true;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
+            // 
             // label10
             // 
             this.label10.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -298,7 +348,7 @@
             this.grd_Facturas.Location = new System.Drawing.Point(16, 288);
             this.grd_Facturas.Name = "grd_Facturas";
             this.grd_Facturas.ReadOnly = true;
-            this.grd_Facturas.Size = new System.Drawing.Size(641, 185);
+            this.grd_Facturas.Size = new System.Drawing.Size(707, 185);
             this.grd_Facturas.TabIndex = 48;
             // 
             // btn_Cerrar
@@ -321,61 +371,11 @@
             this.btn_SaveData.UseVisualStyleBackColor = true;
             this.btn_SaveData.Click += new System.EventHandler(this.btn_SaveData_Click);
             // 
-            // btn_Editar
-            // 
-            this.btn_Editar.Image = global::Contabilidad.Properties.Resources.editar;
-            this.btn_Editar.Location = new System.Drawing.Point(317, 91);
-            this.btn_Editar.Name = "btn_Editar";
-            this.btn_Editar.Size = new System.Drawing.Size(41, 37);
-            this.btn_Editar.TabIndex = 48;
-            this.btn_Editar.UseVisualStyleBackColor = true;
-            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
-            // 
-            // btn_Add
-            // 
-            this.btn_Add.Image = global::Contabilidad.Properties.Resources.agregar;
-            this.btn_Add.Location = new System.Drawing.Point(248, 91);
-            this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(41, 37);
-            this.btn_Add.TabIndex = 47;
-            this.btn_Add.UseVisualStyleBackColor = true;
-            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
-            // 
-            // btn_Guardar
-            // 
-            this.btn_Guardar.Image = global::Contabilidad.Properties.Resources.guardar;
-            this.btn_Guardar.Location = new System.Drawing.Point(382, 91);
-            this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(41, 37);
-            this.btn_Guardar.TabIndex = 46;
-            this.btn_Guardar.UseVisualStyleBackColor = true;
-            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
-            // 
-            // cmb_Cuenta
-            // 
-            this.cmb_Cuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Cuenta.Enabled = false;
-            this.cmb_Cuenta.FormattingEnabled = true;
-            this.cmb_Cuenta.Location = new System.Drawing.Point(271, 31);
-            this.cmb_Cuenta.Name = "cmb_Cuenta";
-            this.cmb_Cuenta.Size = new System.Drawing.Size(116, 21);
-            this.cmb_Cuenta.TabIndex = 49;
-            // 
-            // cmb_Documento
-            // 
-            this.cmb_Documento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Documento.Enabled = false;
-            this.cmb_Documento.FormattingEnabled = true;
-            this.cmb_Documento.Location = new System.Drawing.Point(88, 55);
-            this.cmb_Documento.Name = "cmb_Documento";
-            this.cmb_Documento.Size = new System.Drawing.Size(116, 21);
-            this.cmb_Documento.TabIndex = 50;
-            // 
             // AsientoCCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 558);
+            this.ClientSize = new System.Drawing.Size(735, 558);
             this.Controls.Add(this.btn_Cerrar);
             this.Controls.Add(this.grd_Facturas);
             this.Controls.Add(this.btn_SaveData);

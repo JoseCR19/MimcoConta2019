@@ -62,5 +62,6 @@ namespace ContaDTO
         public String DocumentoCabTabla { get; set; }
         public int DocumentoCabItemOt { get; set; }
         public String NumeroRegistro { get; set; }
+        public String tipreg { get; set; }
     }
 }

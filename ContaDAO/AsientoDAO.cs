@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ContaDTO;
+using ContabilidadDTO;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data;
 using System.Data.Common;
@@ -31,6 +32,26 @@ namespace ContaDAO
             }
             return aux;
         }
+        public List<AsientoDetalle> getGenerarDetalleValidar(String serie, String numero)
+        {
+            List<AsientoDetalle> objList = new List<AsientoDetalle>();
+            AsientoDetalle obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            /*procedimiento almacenado*/
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_GenerarAsientoVentaValidar",
+                   new object[] { serie, numero });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new AsientoDetalle();
+                    obj.numeroot = Convert.ToInt32(dataReader["suma"].ToString());
+                    obj.CodoOt = dataReader["codot"].ToString();
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
         /*procedimiento para poder listar las facturas que posteriormente se ejecutaran como asientos*/
         public List<AsientoDetalle> getGenerarDetalle(String serie, String numero)
         {
@@ -55,6 +76,7 @@ namespace ContaDAO
                     obj.TipDocCodigo = dataReader["DocCod"].ToString();
                     obj.TipoAsiento = "05";
                     obj.Anexo = "";
+                    obj.CodoOt = dataReader["CodOt"].ToString();
                     objList.Add(obj);
                 }
             }
@@ -109,6 +131,88 @@ namespace ContaDAO
                     obj.FechaVcto = dataReader["FechaVcto"].ToString();
                     obj.TipDocCodigo = dataReader["DocCod"].ToString();
                     obj.TipoAsiento = "11";
+                    obj.CodoOt = dataReader["CodOt"].ToString();
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
+        public List<AsientoDetalle> getGenerarDetalleCompraServicio1(String numeroRegistro)
+        {
+            List<AsientoDetalle> objList = new List<AsientoDetalle>();
+            AsientoDetalle obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_GenerarCompraAsientoServicio1",
+                   new object[] { numeroRegistro });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new AsientoDetalle();
+                    obj.Cuenta = dataReader["Cuenta"].ToString();
+                    obj.TipoImporte = dataReader["TipoImporte"].ToString();
+                    obj.Importe = convertToDouble(dataReader["Importe"].ToString());
+                    obj.TipoDoc = dataReader["TipDoc"].ToString();
+                    obj.Fecha = dataReader["Fecha"].ToString();
+                    obj.Documento = dataReader["Documento"].ToString();
+                    obj.FechaVcto = dataReader["FechaVcto"].ToString();
+                    obj.TipDocCodigo = dataReader["DocCod"].ToString();
+                    obj.TipoAsiento = "11";
+                    obj.CodoOt = dataReader["CodOt"].ToString();
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
+        public List<AsientoDetalle> getGenerarDetalleCompraServicio(String numeroRegistro)
+        {
+            List<AsientoDetalle> objList = new List<AsientoDetalle>();
+            AsientoDetalle obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_GenerarCompraAsientoServicio",
+                   new object[] { numeroRegistro });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new AsientoDetalle();
+                    obj.Cuenta = dataReader["Cuenta"].ToString();
+                    obj.TipoImporte = dataReader["TipoImporte"].ToString();
+                    obj.Importe = convertToDouble(dataReader["Importe"].ToString());
+                    obj.TipoDoc = dataReader["TipDoc"].ToString();
+                    obj.Fecha = dataReader["Fecha"].ToString();
+                    obj.Documento = dataReader["Documento"].ToString();
+                    obj.FechaVcto = dataReader["FechaVcto"].ToString();
+                    obj.TipDocCodigo = dataReader["DocCod"].ToString();
+                    obj.TipoAsiento = "11";
+                    obj.CodoOt = dataReader["CodOt"].ToString();
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
+        public List<AsientoDetalle> getGenerarDetalleCompraServicio2(String numeroRegistro)
+        {
+            List<AsientoDetalle> objList = new List<AsientoDetalle>();
+            AsientoDetalle obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_GenerarCompraAsientoDetalleServicio1",
+                   new object[] { numeroRegistro });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new AsientoDetalle();
+                    obj.Cuenta = dataReader["Cuenta"].ToString();
+                    obj.TipoImporte = dataReader["TipoImporte"].ToString();
+                    obj.Importe = convertToDouble(dataReader["Importe"].ToString());
+                    obj.TipoDoc = dataReader["TipDoc"].ToString();
+                    obj.Fecha = dataReader["Fecha"].ToString();
+                    obj.Documento = dataReader["Documento"].ToString();
+                    obj.FechaVcto = dataReader["FechaVcto"].ToString();
+                    obj.TipDocCodigo = dataReader["DocCod"].ToString();
+                    obj.TipoAsiento = "11";
+                    obj.CodoOt = dataReader["CodOt"].ToString();
                     objList.Add(obj);
                 }
             }
@@ -285,6 +389,187 @@ namespace ContaDAO
                     }
                     obj.Haber = convertToDouble(dataReader["Haber"].ToString());
                     obj.Debe = convertToDouble(dataReader["Debe"].ToString());
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
+        public List<EstadoGananciasPerdidasNaturaleza> getEstadoGPNaturaleza(String anio,String mes)
+        {
+            List<EstadoGananciasPerdidasNaturaleza> objList = new List<EstadoGananciasPerdidasNaturaleza>();
+            EstadoGananciasPerdidasNaturaleza obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_EstadoGananciasPerdidasNaturaleza",
+                   new object[] { anio, mes });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new EstadoGananciasPerdidasNaturaleza();
+                    obj.egpn1 =Convert.ToDouble( dataReader["egpn1"].ToString());
+                    obj.egpn2 = Convert.ToDouble(dataReader["egpn2"].ToString());
+                    obj.egpn3 = Convert.ToDouble(dataReader["egpn3"].ToString());
+                    obj.egpn4 = Convert.ToDouble(dataReader["egpn4"].ToString());
+                    obj.egpn5 = Convert.ToDouble(dataReader["egpn5"].ToString());
+                    obj.egpn6 = Convert.ToDouble(dataReader["egpn6"].ToString());
+                    obj.egpn7 = Convert.ToDouble(dataReader["egpn7"].ToString());
+                    obj.egpn8 = Convert.ToDouble(dataReader["egpn8"].ToString());
+                    obj.egpn9 = Convert.ToDouble(dataReader["egpn9"].ToString());
+                    obj.egpn10 = Convert.ToDouble(dataReader["egpn10"].ToString());
+                    obj.egpn11 = Convert.ToDouble(dataReader["egpn11"].ToString());
+                    obj.egpn12 = Convert.ToDouble(dataReader["egpn12"].ToString());
+                    obj.egpn13 = Convert.ToDouble(dataReader["egpn13"].ToString());
+                    obj.egpn14 = Convert.ToDouble(dataReader["egpn14"].ToString());
+                    obj.egpn15 = Convert.ToDouble(dataReader["egpn15"].ToString());
+                    obj.egpn16 = Convert.ToDouble(dataReader["egpn16"].ToString());
+                    obj.egpn17 = Convert.ToDouble(dataReader["egpn17"].ToString());
+                    obj.egpn18 = Convert.ToDouble(dataReader["egpn18"].ToString());
+                    obj.egpn19 = Convert.ToDouble(dataReader["egpn19"].ToString());
+                    obj.egpn20 = Convert.ToDouble(dataReader["egpn20"].ToString());
+                    obj.egpn21 = Convert.ToDouble(dataReader["egpn21"].ToString());
+                    obj.egpn22 = Convert.ToDouble(dataReader["egpn22"].ToString());
+                    obj.egpn23 = Convert.ToDouble(dataReader["egpn23"].ToString());
+                    obj.egpn24 = Convert.ToDouble(dataReader["egpn24"].ToString());
+                    obj.egpn25 = Convert.ToDouble(dataReader["egpn25"].ToString());
+                    obj.egpn26 = Convert.ToDouble(dataReader["egpn26"].ToString());
+                    obj.egpn27 = Convert.ToDouble(dataReader["egpn27"].ToString());
+                    obj.egpn28 = Convert.ToDouble(dataReader["egpn28"].ToString());
+                    obj.egpn29 = Convert.ToDouble(dataReader["egpn29"].ToString());
+                    obj.egpn30 = Convert.ToDouble(dataReader["egpn30"].ToString());
+                    obj.egpn31 = Convert.ToDouble(dataReader["egpn31"].ToString());
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
+        public List<BalanceGeneralReporte> getBalanceGeneral(String anio1, String mes1, String anio2, String mes2)
+        {
+            List<BalanceGeneralReporte> objList = new List<BalanceGeneralReporte>();
+            BalanceGeneralReporte obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_BalanceGeneral",
+                   new object[] { anio1, mes1, anio2, mes2 });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new BalanceGeneralReporte();
+                    obj.Cuenta = dataReader["CuentaContable"].ToString();
+                    obj.Descripcion = dataReader["Descripccion"].ToString();
+                    obj.SaldoAnterior =Convert.ToDouble( dataReader["SaldoAterior"].ToString());
+                    obj.Debe = Convert.ToDouble(dataReader["Debe"].ToString());
+                    obj.Haber = Convert.ToDouble(dataReader["Haber"].ToString());
+                    obj.SaldoActual = Convert.ToDouble(dataReader["SaldoActual"].ToString());
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
+        public List<EstadoGananciasPerdidasFunciones> getEstadoGPFuncion(String anio, String mes)
+        {
+            List<EstadoGananciasPerdidasFunciones> objList = new List<EstadoGananciasPerdidasFunciones>();
+            EstadoGananciasPerdidasFunciones obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_EstadoGananciasPerdidasFuncion",
+                   new object[] { anio, mes });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new EstadoGananciasPerdidasFunciones();
+                    obj.egpf1 = Convert.ToDouble(dataReader["egpn1"].ToString());
+                    obj.egpf2 = Convert.ToDouble(dataReader["egpn2"].ToString());
+                    obj.egpf3 = Convert.ToDouble(dataReader["egpn3"].ToString());
+                    obj.egpf4 = Convert.ToDouble(dataReader["egpn4"].ToString());
+                    obj.egpf5 = Convert.ToDouble(dataReader["egpn5"].ToString());
+                    obj.egpf6 = Convert.ToDouble(dataReader["egpn6"].ToString());
+                    obj.egpf7 = Convert.ToDouble(dataReader["egpn7"].ToString());
+                    obj.egpf8 = Convert.ToDouble(dataReader["egpn8"].ToString());
+                    obj.egpf9 = Convert.ToDouble(dataReader["egpn9"].ToString());
+                    obj.egpf10 = Convert.ToDouble(dataReader["egpn10"].ToString());
+                    obj.egpf11 = Convert.ToDouble(dataReader["egpn11"].ToString());
+                    obj.egpf12 = Convert.ToDouble(dataReader["egpn12"].ToString());
+                    obj.egpf13 = Convert.ToDouble(dataReader["egpn13"].ToString());
+                    obj.egpf14 = Convert.ToDouble(dataReader["egpn14"].ToString());
+                    obj.egpf15 = Convert.ToDouble(dataReader["egpn15"].ToString());
+                    obj.egpf16 = Convert.ToDouble(dataReader["egpn16"].ToString());
+                    obj.egpf17 = Convert.ToDouble(dataReader["egpn17"].ToString());
+                    obj.egpf18 = Convert.ToDouble(dataReader["egpn18"].ToString());
+                    obj.egpf19 = Convert.ToDouble(dataReader["egpn19"].ToString());
+                    obj.egpf20 = Convert.ToDouble(dataReader["egpn20"].ToString());
+                    obj.egpf21 = Convert.ToDouble(dataReader["egpn21"].ToString());
+                    obj.egpf22 = Convert.ToDouble(dataReader["egpn22"].ToString());
+                    obj.egpf23 = Convert.ToDouble(dataReader["egpn23"].ToString());
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
+        public List<EstadoFlujoEfectivo> getEstadoFlujoEfectivo(String anio, String mes)
+        {
+            List<EstadoFlujoEfectivo> objList = new List<EstadoFlujoEfectivo>();
+            EstadoFlujoEfectivo obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_EstadoFlujoEfectivo",
+                   new object[] { anio, mes });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new EstadoFlujoEfectivo();
+                    obj.efe1 = Convert.ToDouble(dataReader["egpn1"].ToString());
+                    obj.efe2 = Convert.ToDouble(dataReader["egpn2"].ToString());
+                    obj.efe3 = Convert.ToDouble(dataReader["egpn3"].ToString());
+                    obj.efe4 = Convert.ToDouble(dataReader["egpn4"].ToString());
+                    obj.efe5 = Convert.ToDouble(dataReader["egpn5"].ToString());
+                    obj.efe6 = Convert.ToDouble(dataReader["egpn6"].ToString());
+                    obj.efe7 = Convert.ToDouble(dataReader["egpn7"].ToString());
+                    obj.efe8 = Convert.ToDouble(dataReader["egpn8"].ToString());
+                    obj.efe9 = Convert.ToDouble(dataReader["egpn9"].ToString());
+                    obj.efe10 = Convert.ToDouble(dataReader["egpn10"].ToString());
+                    obj.efe11 = Convert.ToDouble(dataReader["egpn11"].ToString());
+                    obj.efe12 = Convert.ToDouble(dataReader["egpn12"].ToString());
+                    obj.efe13 = Convert.ToDouble(dataReader["egpn13"].ToString());
+                    obj.efe14 = Convert.ToDouble(dataReader["egpn14"].ToString());
+                    obj.efe15 = Convert.ToDouble(dataReader["egpn15"].ToString());
+                    obj.efe16 = Convert.ToDouble(dataReader["egpn16"].ToString());
+                    obj.efe17 = Convert.ToDouble(dataReader["egpn17"].ToString());
+                    obj.efe18 = Convert.ToDouble(dataReader["egpn18"].ToString());
+                    obj.efe19 = Convert.ToDouble(dataReader["egpn19"].ToString());
+                    obj.efe20 = Convert.ToDouble(dataReader["egpn20"].ToString());
+                    obj.efe21 = Convert.ToDouble(dataReader["egpn21"].ToString());
+                    obj.efe22 = Convert.ToDouble(dataReader["egpn22"].ToString());
+                    obj.efe23 = Convert.ToDouble(dataReader["egpn23"].ToString());
+                    obj.efe24 = Convert.ToDouble(dataReader["egpn24"].ToString());
+                    obj.efe25 = Convert.ToDouble(dataReader["egpn25"].ToString());
+                    obj.efe26 = Convert.ToDouble(dataReader["egpn26"].ToString());
+                    obj.efe27 = Convert.ToDouble(dataReader["egpn27"].ToString());
+                    obj.efe28 = Convert.ToDouble(dataReader["egpn28"].ToString());
+                    obj.efe29 = Convert.ToDouble(dataReader["egpn29"].ToString());
+                    obj.efe30 = Convert.ToDouble(dataReader["egpn30"].ToString());
+                    obj.efe31 = Convert.ToDouble(dataReader["egpn31"].ToString());
+                    obj.efe32 = Convert.ToDouble(dataReader["egpn32"].ToString());
+                    obj.efe33 = Convert.ToDouble(dataReader["egpn33"].ToString());
+                    obj.efe34 = Convert.ToDouble(dataReader["egpn34"].ToString());
+                    obj.efe35 = Convert.ToDouble(dataReader["egpn35"].ToString());
+                    obj.efe36 = Convert.ToDouble(dataReader["egpn36"].ToString());
+                    obj.efe37 = Convert.ToDouble(dataReader["egpn37"].ToString());
+                    obj.efe38 = Convert.ToDouble(dataReader["egpn38"].ToString());
+                    obj.efe39 = Convert.ToDouble(dataReader["egpn39"].ToString());
+                    obj.efe40 = Convert.ToDouble(dataReader["egpn40"].ToString());
+                    obj.efe41 = Convert.ToDouble(dataReader["egpn41"].ToString());
+                    obj.efe42 = Convert.ToDouble(dataReader["egpn42"].ToString());
+                    obj.efe43 = Convert.ToDouble(dataReader["egpn43"].ToString());
+                    obj.efe44 = Convert.ToDouble(dataReader["egpn44"].ToString());
+                    obj.efe45 = Convert.ToDouble(dataReader["egpn45"].ToString());
+                    obj.efe46 = Convert.ToDouble(dataReader["egpn46"].ToString());
+                    obj.efe47 = Convert.ToDouble(dataReader["egpn47"].ToString());
+                    obj.efe48 = Convert.ToDouble(dataReader["egpn48"].ToString());
+                    obj.efe49 = Convert.ToDouble(dataReader["egpn49"].ToString());
+                    obj.efe50 = Convert.ToDouble(dataReader["egpn50"].ToString());
+                    obj.efe51 = Convert.ToDouble(dataReader["egpn51"].ToString());
+                    obj.efe52 = Convert.ToDouble(dataReader["egpn52"].ToString());
+                    obj.efe53 = Convert.ToDouble(dataReader["egpn53"].ToString());
                     objList.Add(obj);
                 }
             }

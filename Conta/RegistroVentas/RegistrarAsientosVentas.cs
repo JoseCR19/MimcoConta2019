@@ -54,7 +54,6 @@ namespace Conta.RegistroVentas
         private void Grd_Facturas_DoubleClick(object sender, EventArgs e)
         {
             AsientoCVenta form = new AsientoCVenta(objDocumentoCab);
-        
             form.Show();
             this.Close();
         }

@@ -288,3 +288,5 @@ C:\Users\HP\Documents\GitHub\MimcoConta2019\Conta\obj\Debug\Conta.RegistroVentas
 C:\Users\HP\Documents\GitHub\MimcoConta2019\Conta\obj\Debug\Conta.RegistroVentas.RegistrarAsientosVentas.resources
 C:\Users\HP\Documents\GitHub\MimcoConta2019\Conta\obj\Debug\Conta.ReporteView.resources
 C:\Users\HP\Documents\GitHub\MimcoConta2019\Conta\obj\Debug\Conta.csproj.GenerateResource.Cache
+C:\Users\HP\Documents\GitHub\MimcoConta2019\Conta\obj\Debug\Contabilidad.Estados.EstadosFinancieros.resources
+C:\Users\HP\Documents\GitHub\MimcoConta2019\Conta\obj\Debug\Contabilidad.BalanceGeneral.BalanceGeneral.resources

@@ -41,8 +41,13 @@ namespace Conta.RegistroVentas
             txt_Haber.Text = objDocumentoCab.DocumentoCabTotal.ToString("C").Substring(3);
             txt_Debe.Text = objDocumentoCab.DocumentoCabTotal.ToString("C").Substring(3);
             gridParams();
+            /*objListaAsientoDetalle = objAsientoDao.getGenerarDetalleValidar(objDocumentoCab.DocumentoCabSerie, objDocumentoCab.DocumentoCabNro);
+            if (objListaAsientoDetalle.Count > 0)
+            {
+
+            }*/
             objListaAsientoDetalle = objAsientoDao.getGenerarDetalle(objDocumentoCab.DocumentoCabSerie, objDocumentoCab.DocumentoCabNro);
-            if(objListaAsientoDetalle.Count>0)
+            /*if(objListaAsientoDetalle.Count>0)
             {
                 grd_Facturas.DataSource = objListaAsientoDetalle;
 
@@ -50,7 +55,8 @@ namespace Conta.RegistroVentas
             {
                 objListaAsientoDetalle = objAsientoDao.getGenerarDetalleCentroCosto(objDocumentoCab.DocumentoCabSerie, objDocumentoCab.DocumentoCabNro);
                 grd_Facturas.DataSource = objListaAsientoDetalle;
-            }
+            }*/
+            grd_Facturas.DataSource = objListaAsientoDetalle;
             grd_Facturas.Refresh();
             grd_Facturas.CellClick += Grd_Facturas_CellClick;
         }
@@ -112,6 +118,11 @@ namespace Conta.RegistroVentas
             idColumn6.Width = 80;
             idColumn6.DataPropertyName = "FechaVcto";
             grd_Facturas.Columns.Add(idColumn6);
+            DataGridViewTextBoxColumn idColumn7 = new DataGridViewTextBoxColumn();
+            idColumn7.Name = "Nro Ot";
+            idColumn7.Width = 80;
+            idColumn7.DataPropertyName = "CodoOt";
+            grd_Facturas.Columns.Add(idColumn7);
         }
 
 

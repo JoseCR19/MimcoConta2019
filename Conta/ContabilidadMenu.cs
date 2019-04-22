@@ -1,5 +1,7 @@
 ﻿using Conta.LibrosContables;
 using Conta.RegistroPagos;
+using Contabilidad.Estados;
+using Contabilidad.BalanceGeneral;
 using ContaDAO;
 using System;
 using System.Collections.Generic;
@@ -45,13 +47,29 @@ namespace Conta
             libroMayorConCajaYBancoToolStripMenuItem.Click += LibroMayorConCajaYBancoToolStripMenuItem_Click;
             cajaChicaToolStripMenuItem.Click += CajaChicaToolStripMenuItem_Click;
             voucherToolStripMenuItem.Click += VoucherToolStripMenuItem_Click;
+            reporteToolStripMenuItem.Click += ReporteToolStripMenuItem_Click;
+            reporteBalanceGeneralToolStripMenuItem1.Click += ReporteBalanceGeneralToolStripMenuItem1_Click;
         }
 
+        private void ReporteBalanceGeneralToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            reporteBalanceGeneralToolStripMenuItem1.Enabled = false;
+            BalanceGeneral check = new BalanceGeneral();
+
+            check.Show();
+        }
         private void VoucherToolStripMenuItem_Click(object sender, EventArgs e)
         {
             voucherToolStripMenuItem.Enabled = false;
             RegistrarVoucher check = new RegistrarVoucher();
             
+            check.Show();
+        }
+        private void ReporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reporteToolStripMenuItem.Enabled = false;
+            EstadosFinancieros check = new EstadosFinancieros();
+
             check.Show();
         }
 
@@ -161,7 +179,14 @@ namespace Conta
                 case "VO": // voucher
                     voucherToolStripMenuItem.Enabled = true;
                     break;
+                case "EF":
+                    reporteToolStripMenuItem.Enabled = true;
+                    break;
+                case "BG":
+                    reporteBalanceGeneralToolStripMenuItem1.Enabled = true;
+                    break;
             }
+
         }
 
         private void ContabilidadMenu_Load(object sender, EventArgs e)

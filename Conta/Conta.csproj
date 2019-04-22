@@ -71,16 +71,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BalanceGeneral\BalanceGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BalanceGeneral\BalanceGeneral.Designer.cs">
+      <DependentUpon>BalanceGeneral.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContabilidadMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ContabilidadMenu.Designer.cs">
       <DependentUpon>ContabilidadMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Estados\EstadosFinancieros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estados\EstadosFinancieros.Designer.cs">
+      <DependentUpon>EstadosFinancieros.cs</DependentUpon>
     </Compile>
     <Compile Include="LibrosContables\LibroDiario.cs">
       <SubType>Form</SubType>
@@ -210,6 +225,30 @@
     <Compile Include="ReporteView.Designer.cs">
       <DependentUpon>ReporteView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\BalanceGeneral.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BalanceGeneral.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\EstadoFlujoEfectivo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EstadoFlujoEfectivo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\GananciasPerdidasFuncion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GananciasPerdidasFuncion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\GananciasPerdidasNaturaleza.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GananciasPerdidasNaturaleza.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reporte\LibroComprasReportePdf.cs">
       <DependentUpon>LibroComprasReportePdf.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -264,8 +303,14 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <EmbeddedResource Include="BalanceGeneral\BalanceGeneral.resx">
+      <DependentUpon>BalanceGeneral.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContabilidadMenu.resx">
       <DependentUpon>ContabilidadMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estados\EstadosFinancieros.resx">
+      <DependentUpon>EstadosFinancieros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LibrosContables\LibroDiario.resx">
       <DependentUpon>LibroDiario.cs</DependentUpon>
@@ -339,6 +384,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteView.resx">
       <DependentUpon>ReporteView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\BalanceGeneral.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BalanceGeneral.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\EstadoFlujoEfectivo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EstadoFlujoEfectivo.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\GananciasPerdidasFuncion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GananciasPerdidasFuncion.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\GananciasPerdidasNaturaleza.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GananciasPerdidasNaturaleza.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\LibroComprasReportePdf.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -492,6 +553,7 @@
       <Name>ContaDTO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

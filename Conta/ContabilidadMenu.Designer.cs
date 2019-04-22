@@ -46,6 +46,10 @@
             this.libroMayorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libroMayorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.libroMayorConCajaYBancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadosFinancierosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.balanceGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteBalanceGeneralToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +58,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.planDeCuentaToolStripMenuItem,
             this.asientosContablesToolStripMenuItem,
-            this.librosContablesToolStripMenuItem});
+            this.librosContablesToolStripMenuItem,
+            this.estadosFinancierosToolStripMenuItem,
+            this.balanceGeneralToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(806, 24);
@@ -175,6 +181,34 @@
             this.libroMayorConCajaYBancoToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.libroMayorConCajaYBancoToolStripMenuItem.Text = "Libro Mayor con caja y banco";
             // 
+            // estadosFinancierosToolStripMenuItem
+            // 
+            this.estadosFinancierosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteToolStripMenuItem});
+            this.estadosFinancierosToolStripMenuItem.Name = "estadosFinancierosToolStripMenuItem";
+            this.estadosFinancierosToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
+            this.estadosFinancierosToolStripMenuItem.Text = "Estados Financieros";
+            // 
+            // reporteToolStripMenuItem
+            // 
+            this.reporteToolStripMenuItem.Name = "reporteToolStripMenuItem";
+            this.reporteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.reporteToolStripMenuItem.Text = "Reporte";
+            // 
+            // balanceGeneralToolStripMenuItem
+            // 
+            this.balanceGeneralToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteBalanceGeneralToolStripMenuItem1});
+            this.balanceGeneralToolStripMenuItem.Name = "balanceGeneralToolStripMenuItem";
+            this.balanceGeneralToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.balanceGeneralToolStripMenuItem.Text = "Balance General";
+            // 
+            // reporteBalanceGeneralToolStripMenuItem1
+            // 
+            this.reporteBalanceGeneralToolStripMenuItem1.Name = "reporteBalanceGeneralToolStripMenuItem1";
+            this.reporteBalanceGeneralToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.reporteBalanceGeneralToolStripMenuItem1.Text = "Reporte";
+            // 
             // ContabilidadMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,5 +250,9 @@
         private System.Windows.Forms.ToolStripMenuItem generarAsientosPagosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cajaChicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem voucherToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estadosFinancierosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem balanceGeneralToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteBalanceGeneralToolStripMenuItem1;
     }
 }

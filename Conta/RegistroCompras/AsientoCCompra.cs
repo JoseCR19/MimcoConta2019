@@ -40,8 +40,33 @@ namespace Conta.RegistroCompras
             gridParams();
             cmbCuenta();
             cmbDocumento();
-            objListaAsientoDetalle = objAsientoDao.getGenerarDetalleCompra(objDocumentoCab.NumeroRegistro);
-            grd_Facturas.DataSource = objListaAsientoDetalle;
+            /*este if es para cuando es una nea y cuando el servicio no estaba registrando con detalle*/
+            if(objDocumentoCab.tipreg=="0")
+            {
+                objListaAsientoDetalle = objAsientoDao.getGenerarDetalleCompra(objDocumentoCab.NumeroRegistro);
+                if (objListaAsientoDetalle.Count > 2)
+                {
+                    grd_Facturas.DataSource = objListaAsientoDetalle;
+                }
+                else
+                {
+                    objListaAsientoDetalle = objAsientoDao.getGenerarDetalleCompraServicio(objDocumentoCab.NumeroRegistro);
+                    grd_Facturas.DataSource = objListaAsientoDetalle;
+                }
+            }
+            if(objDocumentoCab.tipreg == "1")
+            {
+                objListaAsientoDetalle = objAsientoDao.getGenerarDetalleCompraServicio1(objDocumentoCab.NumeroRegistro);
+                if (objListaAsientoDetalle.Count > 2)
+                {
+                    grd_Facturas.DataSource = objListaAsientoDetalle;
+                }
+                else
+                {
+                    objListaAsientoDetalle = objAsientoDao.getGenerarDetalleCompraServicio2(objDocumentoCab.NumeroRegistro);
+                    grd_Facturas.DataSource = objListaAsientoDetalle;
+                }
+            }
             grd_Facturas.CellClick += Grd_Facturas_CellClick;
             grd_Facturas.Refresh();
             sumatorias();
@@ -96,6 +121,11 @@ namespace Conta.RegistroCompras
             idColumn6.Width = 80;
             idColumn6.DataPropertyName = "FechaVcto";
             grd_Facturas.Columns.Add(idColumn6);
+            DataGridViewTextBoxColumn idColumn7 = new DataGridViewTextBoxColumn();
+            idColumn7.Name = "CodOt";
+            idColumn7.Width = 80;
+            idColumn7.DataPropertyName = "CodoOt";
+            grd_Facturas.Columns.Add(idColumn7);
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)

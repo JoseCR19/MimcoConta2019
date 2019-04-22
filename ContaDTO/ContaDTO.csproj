@@ -44,11 +44,15 @@
     <Compile Include="AnexoContable.cs" />
     <Compile Include="Asiento.cs" />
     <Compile Include="AsientoDetalle.cs" />
+    <Compile Include="BalanceGeneralReporte.cs" />
     <Compile Include="CajaDet.cs" />
     <Compile Include="Compras.cs" />
     <Compile Include="CuentaContable.cs" />
     <Compile Include="DocumentoCab.cs" />
     <Compile Include="DocumentoDet.cs" />
+    <Compile Include="EstadoFlujoEfectivo.cs" />
+    <Compile Include="EstadoGananciasPerdidasFunciones.cs" />
+    <Compile Include="EstadoGananciasPerdidasNaturaleza.cs" />
     <Compile Include="LibroDiario.cs" />
     <Compile Include="MesDTO.cs" />
     <Compile Include="Moneda.cs" />

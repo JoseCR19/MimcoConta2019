@@ -21,5 +21,8 @@ namespace ContaDTO
         public String Documento { get; set; }
         public String TipDocCodigo { get; set; }
         public String NumReg { get; set; }
+        public String CodoOt { get; set; }
+        public int numeroot { get; set; }
+        public string reg { get;set; }
     }
 }

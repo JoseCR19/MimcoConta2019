@@ -144,6 +144,7 @@ namespace ContaDAO
                     obj.DocumentoCabSerieRef = dataReader["SerieRef"].ToString().Trim();
                     obj.DocumentoCabNroRef = dataReader["NumeroRef"].ToString().Trim();
                     obj.NumeroRegistro = dataReader["numReg"].ToString().Trim();
+                    obj.tipreg = dataReader["tr"].ToString();
                     objLista.Add(obj);
                     
                 }
