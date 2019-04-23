@@ -172,9 +172,9 @@ namespace Contabilidad.Estados
         private void btn_excel_Click(object sender, EventArgs e)
         {
             Random r = new Random();
-            String fileName = @"D:\contabilidad_ef\EstadoFinancieroNaturaleza" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
-            String fileName2 = @"D:\contabilidad_ef\EstadoFinancieroFuncion" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
-            String fileName3 = @"D:\contabilidad_ef\EstadoFlujoEfectivo" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
+            String fileName = @"N:\contabilidad_ef\EstadoFinancieroNaturaleza" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
+            String fileName2 = @"N:\contabilidad_ef\EstadoFinancieroFuncion" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
+            String fileName3 = @"N:\contabilidad_ef\EstadoFlujoEfectivo" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
             if (cmb_estado.SelectedValue.ToString()=="01")
             {
                 objListEGPN = objAsientoDao.getEstadoGPNaturaleza(cmb_anio.SelectedValue.ToString(), cmb_Mes.SelectedValue.ToString());

@@ -245,13 +245,40 @@ namespace ContaDAO
             }
             return objList;
         }
-        public List<AsientoDetalle> getGenerarDetalleVoucher(String nroVoucher, int item)
+        public List<AsientoDetalle> getGenerarDetalleVoucher(String nroVoucher)
         {
             List<AsientoDetalle> objList = new List<AsientoDetalle>();
             AsientoDetalle obj;
             Database db = DatabaseFactory.CreateDatabase("Contabilidad");
             DbCommand dbCommand = db.GetStoredProcCommand("sp_DetalleVoucherAsiento",
-                   new object[] { nroVoucher, item});
+                   new object[] { nroVoucher});
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new AsientoDetalle();
+                    obj.Cuenta = dataReader["Cuenta"].ToString();
+                    obj.TipoImporte = dataReader["TipoImporte"].ToString();
+                    obj.Importe = convertToDouble(dataReader["Importe"].ToString());
+                    obj.TipoDoc = dataReader["TipDoc"].ToString();
+                    obj.Fecha = dataReader["Fecha"].ToString();
+                    obj.Documento = dataReader["Documento"].ToString();
+                    obj.FechaVcto = dataReader["FechaVcto"].ToString();
+                    obj.TipDocCodigo = dataReader["DocCod"].ToString();
+                    obj.TipoAsiento = "01";
+                    obj.Anexo = "";
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
+        public List<AsientoDetalle> getGenerarDetalleVoucherCheque(String nroVoucher)
+        {
+            List<AsientoDetalle> objList = new List<AsientoDetalle>();
+            AsientoDetalle obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_DetalleVoucherAsiento",
+                   new object[] { nroVoucher });
             using (IDataReader dataReader = db.ExecuteReader(dbCommand))
             {
                 while (dataReader.Read())
@@ -744,6 +771,7 @@ namespace ContaDAO
                     obj.TipoPagoCod = dataReader["TipoPagoCod"].ToString();
                     obj.TipoPago = dataReader["TipoPago"].ToString();
                     obj.Ruc = dataReader["rucprov"].ToString();
+                    obj.TipVoucher = dataReader["TipVou"].ToString();
                     objList.Add(obj);
 
 

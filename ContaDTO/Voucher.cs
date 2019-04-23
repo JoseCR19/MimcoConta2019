@@ -32,5 +32,6 @@ namespace ContaDTO
         public String TipoPago { get; set; }
         public String TipDocCorta { get; set; }
         public String Ruc { get; set; }
+        public String TipVoucher { get; set; }
     }
 }

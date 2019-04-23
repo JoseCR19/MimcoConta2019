@@ -31,14 +31,32 @@ namespace Conta.RegistroPagos
             objVoucher = obj;
             objAsiento = new Asiento();
             objAsientoDao = new AsientoDAO();
-            txt_TipoAsiento.Text = "23";
+            /*CHEQUES*/
+            if(objVoucher.TipVoucher.ToString()=="C")
+            {
+                txt_TipoAsiento.Text = "23";
+            }
+            /*CARGOS*/
+            else if(objVoucher.TipVoucher.ToString()=="CA")
+            {
+                txt_TipoAsiento.Text = "22";
+            }
+            /*ABONOS*/
+            else if(objVoucher.TipVoucher.ToString()=="A")
+            {
+                txt_TipoAsiento.Text = "21";
+            }
             txt_Correlativo.Text = objAsientoDao.getCorrelativoAsientoVenta(objVoucher.FechaEmision.ToString("dd/MM/yyyy"), txt_TipoAsiento.Text);
             gridParams();
             cmbCuenta();
             cmbDocumento();
             txt_Fecha.Text = objVoucher.FechaPago.ToString("dd/MM/yyyy");
             txt_Moneda.Text = objVoucher.Moneda;
-            objListaAsientoDetalle = objAsientoDao.getGenerarDetalleVoucher(objVoucher.NroVoucher, objVoucher.Item);
+            if(objVoucher.TipVoucher.ToString()=="C")
+            {
+               
+            }
+            objListaAsientoDetalle = objAsientoDao.getGenerarDetalleVoucher(objVoucher.NroVoucher);
             grd_Facturas.DataSource = objListaAsientoDetalle;
             grd_Facturas.Refresh();
             grd_Facturas.CellClick += Grd_Facturas_CellClick;

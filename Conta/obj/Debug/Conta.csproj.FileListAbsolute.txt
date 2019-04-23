@@ -290,3 +290,5 @@ C:\Users\HP\Documents\GitHub\MimcoConta2019\Conta\obj\Debug\Conta.ReporteView.re
 C:\Users\HP\Documents\GitHub\MimcoConta2019\Conta\obj\Debug\Conta.csproj.GenerateResource.Cache
 C:\Users\HP\Documents\GitHub\MimcoConta2019\Conta\obj\Debug\Contabilidad.Estados.EstadosFinancieros.resources
 C:\Users\HP\Documents\GitHub\MimcoConta2019\Conta\obj\Debug\Contabilidad.BalanceGeneral.BalanceGeneral.resources
+G:\Conta\Conta\obj\Debug\Contabilidad.BalanceGeneral.BalanceGeneral.resources
+G:\Conta\Conta\obj\Debug\Contabilidad.Estados.EstadosFinancieros.resources

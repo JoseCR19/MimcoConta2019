@@ -150,7 +150,7 @@ namespace Contabilidad.BalanceGeneral
         {
             
             Random r = new Random();
-            String fileName = @"D:\Balance\EstadoFinancieroNaturaleza" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
+            String fileName = @"N:\Balance\EstadoFinancieroNaturaleza" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
             if(cmb_anio.SelectedValue.ToString()=="2019" && cmb_Mes.SelectedValue.ToString() == "1")
             {
                Anio2 = "2018";

@@ -42,6 +42,8 @@
             this.txt_Fecha = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txt_descripcion = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txt_Tipo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,8 +56,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btn_Cerrar = new System.Windows.Forms.Button();
             this.btn_SaveData = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txt_descripcion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Facturas)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,7 +67,7 @@
             this.grd_Facturas.Location = new System.Drawing.Point(16, 288);
             this.grd_Facturas.Name = "grd_Facturas";
             this.grd_Facturas.ReadOnly = true;
-            this.grd_Facturas.Size = new System.Drawing.Size(641, 185);
+            this.grd_Facturas.Size = new System.Drawing.Size(740, 185);
             this.grd_Facturas.TabIndex = 31;
             // 
             // txt_TipoAsiento
@@ -217,6 +217,25 @@
             this.panel2.Size = new System.Drawing.Size(641, 133);
             this.panel2.TabIndex = 45;
             // 
+            // txt_descripcion
+            // 
+            this.txt_descripcion.Location = new System.Drawing.Point(99, 96);
+            this.txt_descripcion.Name = "txt_descripcion";
+            this.txt_descripcion.Size = new System.Drawing.Size(511, 20);
+            this.txt_descripcion.TabIndex = 47;
+            // 
+            // label11
+            // 
+            this.label11.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label11.Location = new System.Drawing.Point(11, 99);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 13);
+            this.label11.TabIndex = 46;
+            this.label11.Text = "Descripción :";
+            // 
             // txt_Tipo
             // 
             this.txt_Tipo.Enabled = false;
@@ -319,7 +338,7 @@
             // btn_Cerrar
             // 
             this.btn_Cerrar.Image = global::Contabilidad.Properties.Resources.close;
-            this.btn_Cerrar.Location = new System.Drawing.Point(608, 488);
+            this.btn_Cerrar.Location = new System.Drawing.Point(707, 490);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(49, 43);
             this.btn_Cerrar.TabIndex = 46;
@@ -336,30 +355,11 @@
             this.btn_SaveData.UseVisualStyleBackColor = true;
             this.btn_SaveData.Click += new System.EventHandler(this.btn_SaveData_Click);
             // 
-            // label11
-            // 
-            this.label11.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label11.Location = new System.Drawing.Point(11, 99);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 13);
-            this.label11.TabIndex = 46;
-            this.label11.Text = "Descripción :";
-            // 
-            // txt_descripcion
-            // 
-            this.txt_descripcion.Location = new System.Drawing.Point(99, 96);
-            this.txt_descripcion.Name = "txt_descripcion";
-            this.txt_descripcion.Size = new System.Drawing.Size(511, 20);
-            this.txt_descripcion.TabIndex = 47;
-            // 
             // AsientoCVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 558);
+            this.ClientSize = new System.Drawing.Size(768, 558);
             this.Controls.Add(this.btn_Cerrar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
