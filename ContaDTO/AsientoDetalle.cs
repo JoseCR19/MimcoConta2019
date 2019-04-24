@@ -23,6 +23,8 @@ namespace ContaDTO
         public String NumReg { get; set; }
         public String CodoOt { get; set; }
         public int numeroot { get; set; }
-        public string reg { get;set; }
+        public String reg { get;set; }
+        public String  Descripcion { get; set; }
+        public String CuentaDescripcion { get; set; }
     }
 }

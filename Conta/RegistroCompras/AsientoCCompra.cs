@@ -35,6 +35,8 @@ namespace Conta.RegistroCompras
             txt_Correlativo.Text = objAsientoDao.getCorrelativoAsientoVenta(objDocumentoCab.DocumentoCabFecha.ToString("dd/MM/yyyy"), txt_TipoAsiento.Text);
             txt_Fecha.Text = objDocumentoCab.DocumentoCabFecha.ToString("dd/MM/yyyy");
             txt_Moneda.Text = objDocumentoCab.DocumentoCabMoneda;
+            txt_glosa.Text = objDocumentoCab.DocumentoCabTipoDoc.ToString().Trim() + " " + objDocumentoCab.DocumentoCabSerie.ToString() + " " + objDocumentoCab.DocumentoCabNro.ToString();
+            txt_cliente.Text = objDocumentoCab.DocumentoCabCliente.ToString().Trim();
             //txt_Haber.Text = objDocumentoCab.DocumentoCabTotal.ToString("C").Substring(3);
             //txt_Debe.Text = objDocumentoCab.DocumentoCabTotal.ToString("C").Substring(3);
             gridParams();
@@ -81,7 +83,8 @@ namespace Conta.RegistroCompras
             txt_Importe.Text = objAsientoDetalle.Importe.ToString();
             cmb_Cuenta.SelectedValue = objAsientoDetalle.TipoImporte;
             cmb_Documento.SelectedValue = objAsientoDetalle.TipDocCodigo;
-
+            txt_cuentadescripcion.Text = objAsientoDetalle.CuentaDescripcion.ToString();
+            
         }
         public void gridParams()
         {
@@ -91,6 +94,11 @@ namespace Conta.RegistroCompras
             idColumn0.Width = 60;
             idColumn0.DataPropertyName = "Cuenta";
             grd_Facturas.Columns.Add(idColumn0);
+            DataGridViewTextBoxColumn idColumn8 = new DataGridViewTextBoxColumn();
+            idColumn8.Name = "Anexo";
+            idColumn8.Width = 80;
+            idColumn8.DataPropertyName = "Anexo";
+            grd_Facturas.Columns.Add(idColumn8);
             DataGridViewTextBoxColumn idColumn1 = new DataGridViewTextBoxColumn();
             idColumn1.Name = "Tipo";
             idColumn1.Width = 40;
@@ -126,6 +134,7 @@ namespace Conta.RegistroCompras
             idColumn7.Width = 80;
             idColumn7.DataPropertyName = "CodoOt";
             grd_Facturas.Columns.Add(idColumn7);
+
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)

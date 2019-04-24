@@ -54,9 +54,16 @@ namespace Conta.RegistroPagos
             txt_Moneda.Text = objVoucher.Moneda;
             if(objVoucher.TipVoucher.ToString()=="C")
             {
-               
+                objListaAsientoDetalle = objAsientoDao.getGenerarDetalleVoucher(objVoucher.NroVoucher);
             }
-            objListaAsientoDetalle = objAsientoDao.getGenerarDetalleVoucher(objVoucher.NroVoucher);
+            else if(objVoucher.TipVoucher.ToString() == "A")
+            {
+                objListaAsientoDetalle = objAsientoDao.getGenerarDetalleVoucherAbono(objVoucher.NroVoucher);
+            }
+            else if(objVoucher.TipVoucher.ToString() == "CA")
+            {
+                objListaAsientoDetalle = objAsientoDao.getGenerarDetalleVoucherCargo(objVoucher.NroVoucher);
+            }
             grd_Facturas.DataSource = objListaAsientoDetalle;
             grd_Facturas.Refresh();
             grd_Facturas.CellClick += Grd_Facturas_CellClick;
@@ -72,6 +79,7 @@ namespace Conta.RegistroPagos
             txt_Importe.Text = objAsientoDetalle.Importe.ToString();
             cmb_Cuenta.SelectedValue = objAsientoDetalle.TipoImporte;
             cmb_Documento.SelectedValue = objAsientoDetalle.TipDocCodigo;
+            txt_Descripccion.Text = objAsientoDetalle.Descripcion.ToString();
         }
 
         void cmbCuenta()
@@ -154,6 +162,11 @@ namespace Conta.RegistroPagos
             idColumn0.Width = 60;
             idColumn0.DataPropertyName = "Cuenta";
             grd_Facturas.Columns.Add(idColumn0);
+            DataGridViewTextBoxColumn idColumn7 = new DataGridViewTextBoxColumn();
+            idColumn7.Name = "Anexo";
+            idColumn7.Width = 180;
+            idColumn7.DataPropertyName = "Anexo";
+            grd_Facturas.Columns.Add(idColumn7);
             DataGridViewTextBoxColumn idColumn1 = new DataGridViewTextBoxColumn();
             idColumn1.Name = "Tipo";
             idColumn1.Width = 40;
@@ -184,6 +197,7 @@ namespace Conta.RegistroPagos
             idColumn6.Width = 80;
             idColumn6.DataPropertyName = "FechaVcto";
             grd_Facturas.Columns.Add(idColumn6);
+
         }
         private void btn_Add_Click(object sender, EventArgs e)
         {

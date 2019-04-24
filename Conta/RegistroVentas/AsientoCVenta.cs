@@ -40,6 +40,9 @@ namespace Conta.RegistroVentas
             txt_Moneda.Text = objDocumentoCab.DocumentoCabMoneda;
             txt_Haber.Text = objDocumentoCab.DocumentoCabTotal.ToString("C").Substring(3);
             txt_Debe.Text = objDocumentoCab.DocumentoCabTotal.ToString("C").Substring(3);
+            txt_descripcion.Text = objDocumentoCab.DocumentoCabGlosa.ToString();
+            txt_cliente.Text = objDocumentoCab.DocumentoCabCliente.ToString();
+            txt_glosa.Text =objDocumentoCab.DocumentoCabTipoDoc.ToString()+" "+ objDocumentoCab.DocumentoCabSerie.ToString() + " " + objDocumentoCab.DocumentoCabNro.ToString();
             gridParams();
             /*objListaAsientoDetalle = objAsientoDao.getGenerarDetalleValidar(objDocumentoCab.DocumentoCabSerie, objDocumentoCab.DocumentoCabNro);
             if (objListaAsientoDetalle.Count > 0)
@@ -70,6 +73,7 @@ namespace Conta.RegistroVentas
             txt_Documento.Text = objAsientoDetalle.Documento;
             txt_Importe.Text = objAsientoDetalle.Importe.ToString();
             txt_TipoDoc.Text = objAsientoDetalle.TipoDoc;
+            txt_desccuenta.Text = objAsientoDetalle.CuentaDescripcion.ToString();
             if (objAsientoDetalle.TipoImporte=="D")
             {
                 txt_Tipo.Text = "Debe";
@@ -88,6 +92,11 @@ namespace Conta.RegistroVentas
             idColumn0.Width = 60;
             idColumn0.DataPropertyName = "Cuenta";
             grd_Facturas.Columns.Add(idColumn0);
+            DataGridViewTextBoxColumn idColumn8 = new DataGridViewTextBoxColumn();
+            idColumn8.Name = "ANEXO";
+            idColumn8.Width = 90;
+            idColumn8.DataPropertyName = "Anexo";
+            grd_Facturas.Columns.Add(idColumn8);
             DataGridViewTextBoxColumn idColumn1 = new DataGridViewTextBoxColumn();
             idColumn1.Name = "Tipo";
             idColumn1.Width = 40;
@@ -100,7 +109,7 @@ namespace Conta.RegistroVentas
             grd_Facturas.Columns.Add(idColumn2);
             DataGridViewTextBoxColumn idColumn3 = new DataGridViewTextBoxColumn();
             idColumn3.Name = "Tipo Documento";
-            idColumn3.Width = 120;
+            idColumn3.Width = 100;
             idColumn3.DataPropertyName = "TipoDoc";
             grd_Facturas.Columns.Add(idColumn3);
             DataGridViewTextBoxColumn idColumn4 = new DataGridViewTextBoxColumn();
@@ -123,6 +132,7 @@ namespace Conta.RegistroVentas
             idColumn7.Width = 80;
             idColumn7.DataPropertyName = "CodoOt";
             grd_Facturas.Columns.Add(idColumn7);
+
         }
 
 

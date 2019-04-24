@@ -80,6 +80,7 @@ namespace ContaDAO
                     obj.DocumentoCabTipoDocRef = dataReader["DOCcab_TipoDocRef"].ToString();
                     obj.DocumentoCabSerieRef = dataReader["DOCcab_SerieRef"].ToString().Trim();
                     obj.DocumentoCabNroRef = dataReader["DOCcab_NumeroRef"].ToString().Trim();
+                    obj.DocumentoCabTipoDoc = dataReader["TipoDoc"].ToString().Trim();
                     string aux4 = dataReader["FechaRef"].ToString();
                     if (!String.IsNullOrEmpty(aux4))
                     {
@@ -145,6 +146,7 @@ namespace ContaDAO
                     obj.DocumentoCabNroRef = dataReader["NumeroRef"].ToString().Trim();
                     obj.NumeroRegistro = dataReader["numReg"].ToString().Trim();
                     obj.tipreg = dataReader["tr"].ToString();
+                    obj.DocumentoCabTipoDoc = dataReader["TipDocDes"].ToString();
                     objLista.Add(obj);
                     
                 }

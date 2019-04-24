@@ -57,6 +57,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btn_Cerrar = new System.Windows.Forms.Button();
             this.btn_SaveData = new System.Windows.Forms.Button();
+            this.txt_Descripccion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Facturas)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -68,12 +69,13 @@
             this.grd_Facturas.Location = new System.Drawing.Point(22, 294);
             this.grd_Facturas.Name = "grd_Facturas";
             this.grd_Facturas.ReadOnly = true;
-            this.grd_Facturas.Size = new System.Drawing.Size(641, 185);
+            this.grd_Facturas.Size = new System.Drawing.Size(827, 185);
             this.grd_Facturas.TabIndex = 56;
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txt_Descripccion);
             this.panel2.Controls.Add(this.cmb_Documento);
             this.panel2.Controls.Add(this.cmb_Cuenta);
             this.panel2.Controls.Add(this.btn_Editar);
@@ -87,9 +89,9 @@
             this.panel2.Controls.Add(this.txt_Cuenta);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(22, 134);
+            this.panel2.Location = new System.Drawing.Point(123, 138);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(641, 133);
+            this.panel2.Size = new System.Drawing.Size(641, 150);
             this.panel2.TabIndex = 55;
             // 
             // cmb_Documento
@@ -97,7 +99,7 @@
             this.cmb_Documento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Documento.Enabled = false;
             this.cmb_Documento.FormattingEnabled = true;
-            this.cmb_Documento.Location = new System.Drawing.Point(88, 55);
+            this.cmb_Documento.Location = new System.Drawing.Point(88, 69);
             this.cmb_Documento.Name = "cmb_Documento";
             this.cmb_Documento.Size = new System.Drawing.Size(116, 21);
             this.cmb_Documento.TabIndex = 50;
@@ -107,7 +109,7 @@
             this.cmb_Cuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Cuenta.Enabled = false;
             this.cmb_Cuenta.FormattingEnabled = true;
-            this.cmb_Cuenta.Location = new System.Drawing.Point(271, 31);
+            this.cmb_Cuenta.Location = new System.Drawing.Point(284, 43);
             this.cmb_Cuenta.Name = "cmb_Cuenta";
             this.cmb_Cuenta.Size = new System.Drawing.Size(116, 21);
             this.cmb_Cuenta.TabIndex = 49;
@@ -115,7 +117,7 @@
             // btn_Editar
             // 
             this.btn_Editar.Image = global::Contabilidad.Properties.Resources.editar;
-            this.btn_Editar.Location = new System.Drawing.Point(317, 91);
+            this.btn_Editar.Location = new System.Drawing.Point(316, 108);
             this.btn_Editar.Name = "btn_Editar";
             this.btn_Editar.Size = new System.Drawing.Size(41, 37);
             this.btn_Editar.TabIndex = 48;
@@ -125,7 +127,7 @@
             // btn_Add
             // 
             this.btn_Add.Image = global::Contabilidad.Properties.Resources.agregar;
-            this.btn_Add.Location = new System.Drawing.Point(248, 91);
+            this.btn_Add.Location = new System.Drawing.Point(246, 108);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(41, 37);
             this.btn_Add.TabIndex = 47;
@@ -135,7 +137,7 @@
             // btn_Guardar
             // 
             this.btn_Guardar.Image = global::Contabilidad.Properties.Resources.guardar;
-            this.btn_Guardar.Location = new System.Drawing.Point(382, 91);
+            this.btn_Guardar.Location = new System.Drawing.Point(379, 108);
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Size = new System.Drawing.Size(41, 37);
             this.btn_Guardar.TabIndex = 46;
@@ -148,7 +150,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label10.Location = new System.Drawing.Point(225, 39);
+            this.label10.Location = new System.Drawing.Point(207, 51);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 13);
             this.label10.TabIndex = 43;
@@ -171,7 +173,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Location = new System.Drawing.Point(400, 60);
+            this.label6.Location = new System.Drawing.Point(400, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 13);
             this.label6.TabIndex = 36;
@@ -180,7 +182,7 @@
             // txt_Documento
             // 
             this.txt_Documento.Enabled = false;
-            this.txt_Documento.Location = new System.Drawing.Point(512, 56);
+            this.txt_Documento.Location = new System.Drawing.Point(512, 65);
             this.txt_Documento.Name = "txt_Documento";
             this.txt_Documento.Size = new System.Drawing.Size(98, 20);
             this.txt_Documento.TabIndex = 38;
@@ -188,7 +190,7 @@
             // txt_Importe
             // 
             this.txt_Importe.Enabled = false;
-            this.txt_Importe.Location = new System.Drawing.Point(512, 16);
+            this.txt_Importe.Location = new System.Drawing.Point(512, 42);
             this.txt_Importe.Name = "txt_Importe";
             this.txt_Importe.Size = new System.Drawing.Size(98, 20);
             this.txt_Importe.TabIndex = 37;
@@ -207,7 +209,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label8.Location = new System.Drawing.Point(426, 17);
+            this.label8.Location = new System.Drawing.Point(426, 43);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 13);
             this.label8.TabIndex = 35;
@@ -219,7 +221,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label9.Location = new System.Drawing.Point(11, 58);
+            this.label9.Location = new System.Drawing.Point(11, 72);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 13);
             this.label9.TabIndex = 39;
@@ -239,7 +241,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txt_Moneda);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(22, 18);
+            this.panel1.Location = new System.Drawing.Point(123, 22);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(641, 100);
             this.panel1.TabIndex = 54;
@@ -354,7 +356,7 @@
             // btn_Cerrar
             // 
             this.btn_Cerrar.Image = global::Contabilidad.Properties.Resources.close;
-            this.btn_Cerrar.Location = new System.Drawing.Point(614, 494);
+            this.btn_Cerrar.Location = new System.Drawing.Point(800, 494);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(49, 43);
             this.btn_Cerrar.TabIndex = 58;
@@ -371,11 +373,19 @@
             this.btn_SaveData.UseVisualStyleBackColor = true;
             this.btn_SaveData.Click += new System.EventHandler(this.btn_SaveData_Click);
             // 
+            // txt_Descripccion
+            // 
+            this.txt_Descripccion.Enabled = false;
+            this.txt_Descripccion.Location = new System.Drawing.Point(210, 16);
+            this.txt_Descripccion.Name = "txt_Descripccion";
+            this.txt_Descripccion.Size = new System.Drawing.Size(400, 20);
+            this.txt_Descripccion.TabIndex = 51;
+            // 
             // AsientoCVoucher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 558);
+            this.ClientSize = new System.Drawing.Size(861, 558);
             this.Controls.Add(this.btn_Cerrar);
             this.Controls.Add(this.btn_SaveData);
             this.Controls.Add(this.grd_Facturas);
@@ -423,5 +433,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_Cerrar;
         private System.Windows.Forms.Button btn_SaveData;
+        private System.Windows.Forms.TextBox txt_Descripccion;
     }
 }

@@ -67,6 +67,7 @@ namespace ContaDAO
                 {
                     obj = new AsientoDetalle();
                     obj.Cuenta = dataReader["Cuenta"].ToString();
+                    obj.Anexo = dataReader["RucCli"].ToString();
                     obj.TipoImporte = dataReader["TipoImporte"].ToString();
                     obj.Importe = convertToDouble(dataReader["Importe"].ToString());
                     obj.TipoDoc = dataReader["TipDoc"].ToString();
@@ -75,8 +76,8 @@ namespace ContaDAO
                     obj.FechaVcto = dataReader["FechaVcto"].ToString();
                     obj.TipDocCodigo = dataReader["DocCod"].ToString();
                     obj.TipoAsiento = "05";
-                    obj.Anexo = "";
                     obj.CodoOt = dataReader["CodOt"].ToString();
+                    obj.CuentaDescripcion = dataReader["DescripcionCuenta"].ToString();
                     objList.Add(obj);
                 }
             }
@@ -131,7 +132,9 @@ namespace ContaDAO
                     obj.FechaVcto = dataReader["FechaVcto"].ToString();
                     obj.TipDocCodigo = dataReader["DocCod"].ToString();
                     obj.TipoAsiento = "11";
+                    obj.Anexo = dataReader["rucprov"].ToString();
                     obj.CodoOt = dataReader["CodOt"].ToString();
+                    obj.CuentaDescripcion = dataReader["DescripcionCuenta"].ToString();
                     objList.Add(obj);
                 }
             }
@@ -159,6 +162,7 @@ namespace ContaDAO
                     obj.TipDocCodigo = dataReader["DocCod"].ToString();
                     obj.TipoAsiento = "11";
                     obj.CodoOt = dataReader["CodOt"].ToString();
+                    obj.CuentaDescripcion = dataReader["DescripcionCuenta"].ToString();
                     objList.Add(obj);
                 }
             }
@@ -186,6 +190,7 @@ namespace ContaDAO
                     obj.TipDocCodigo = dataReader["DocCod"].ToString();
                     obj.TipoAsiento = "11";
                     obj.CodoOt = dataReader["CodOt"].ToString();
+                    obj.CuentaDescripcion = dataReader["DescripcionCuenta"].ToString();
                     objList.Add(obj);
                 }
             }
@@ -213,6 +218,7 @@ namespace ContaDAO
                     obj.TipDocCodigo = dataReader["DocCod"].ToString();
                     obj.TipoAsiento = "11";
                     obj.CodoOt = dataReader["CodOt"].ToString();
+                    obj.CuentaDescripcion = dataReader["DescripcionCuenta"].ToString();
                     objList.Add(obj);
                 }
             }
@@ -266,7 +272,62 @@ namespace ContaDAO
                     obj.FechaVcto = dataReader["FechaVcto"].ToString();
                     obj.TipDocCodigo = dataReader["DocCod"].ToString();
                     obj.TipoAsiento = "01";
-                    obj.Anexo = "";
+                    obj.Anexo = dataReader["Cliente"].ToString();
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
+        public List<AsientoDetalle> getGenerarDetalleVoucherAbono(String nroVoucher)
+        {
+            List<AsientoDetalle> objList = new List<AsientoDetalle>();
+            AsientoDetalle obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_DetalleVoucherAsientoAbono",
+                   new object[] { nroVoucher });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new AsientoDetalle();
+                    obj.Cuenta = dataReader["Cuenta"].ToString();
+                    obj.TipoImporte = dataReader["TipoImporte"].ToString();
+                    obj.Importe = convertToDouble(dataReader["Importe"].ToString());
+                    obj.TipoDoc = dataReader["TipDoc"].ToString();
+                    obj.Fecha = dataReader["Fecha"].ToString();
+                    obj.Documento = dataReader["Documento"].ToString();
+                    obj.FechaVcto = dataReader["FechaVcto"].ToString();
+                    obj.TipDocCodigo = dataReader["DocCod"].ToString();
+                    obj.TipoAsiento = "01";
+                    obj.Anexo = dataReader["Cliente"].ToString();
+                    obj.Descripcion = dataReader["Descripcion"].ToString();
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
+        public List<AsientoDetalle> getGenerarDetalleVoucherCargo(String nroVoucher)
+        {
+            List<AsientoDetalle> objList = new List<AsientoDetalle>();
+            AsientoDetalle obj;
+            Database db = DatabaseFactory.CreateDatabase("Contabilidad");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_DetalleVoucherAsientoCargo",
+                   new object[] { nroVoucher });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new AsientoDetalle();
+                    obj.Cuenta = dataReader["Cuenta"].ToString();
+                    obj.TipoImporte = dataReader["TipoImporte"].ToString();
+                    obj.Importe = convertToDouble(dataReader["Importe"].ToString());
+                    obj.TipoDoc = dataReader["TipDoc"].ToString();
+                    obj.Fecha = dataReader["Fecha"].ToString();
+                    obj.Documento = dataReader["Documento"].ToString();
+                    obj.FechaVcto = dataReader["FechaVcto"].ToString();
+                    obj.TipDocCodigo = dataReader["DocCod"].ToString();
+                    obj.TipoAsiento = "01";
+                    obj.Anexo = dataReader["Cliente"].ToString();
                     objList.Add(obj);
                 }
             }
@@ -761,7 +822,7 @@ namespace ContaDAO
                     obj.BancoCod = dataReader["CodBanco"].ToString();
                     obj.Banco = dataReader["Banco"].ToString();
                     obj.Solicitante = dataReader["Solicitante"].ToString().ToUpper();
-                    obj.Importe = convertToDouble(dataReader["Importe"].ToString());
+                    obj.Importe = convertToDouble(dataReader["MontoPago"].ToString());
                     obj.CodOt = dataReader["CodOt"].ToString();
                     obj.NroOt = dataReader["NroOt"].ToString();
                     obj.SerieDocRef = dataReader["SerieDocRef"].ToString();
