@@ -494,37 +494,9 @@ namespace ContaDAO
                 while (dataReader.Read())
                 {
                     obj = new EstadoGananciasPerdidasNaturaleza();
-                    obj.egpn1 =Convert.ToDouble( dataReader["egpn1"].ToString());
-                    obj.egpn2 = Convert.ToDouble(dataReader["egpn2"].ToString());
-                    obj.egpn3 = Convert.ToDouble(dataReader["egpn3"].ToString());
-                    obj.egpn4 = Convert.ToDouble(dataReader["egpn4"].ToString());
-                    obj.egpn5 = Convert.ToDouble(dataReader["egpn5"].ToString());
-                    obj.egpn6 = Convert.ToDouble(dataReader["egpn6"].ToString());
-                    obj.egpn7 = Convert.ToDouble(dataReader["egpn7"].ToString());
-                    obj.egpn8 = Convert.ToDouble(dataReader["egpn8"].ToString());
-                    obj.egpn9 = Convert.ToDouble(dataReader["egpn9"].ToString());
-                    obj.egpn10 = Convert.ToDouble(dataReader["egpn10"].ToString());
-                    obj.egpn11 = Convert.ToDouble(dataReader["egpn11"].ToString());
-                    obj.egpn12 = Convert.ToDouble(dataReader["egpn12"].ToString());
-                    obj.egpn13 = Convert.ToDouble(dataReader["egpn13"].ToString());
-                    obj.egpn14 = Convert.ToDouble(dataReader["egpn14"].ToString());
-                    obj.egpn15 = Convert.ToDouble(dataReader["egpn15"].ToString());
-                    obj.egpn16 = Convert.ToDouble(dataReader["egpn16"].ToString());
-                    obj.egpn17 = Convert.ToDouble(dataReader["egpn17"].ToString());
-                    obj.egpn18 = Convert.ToDouble(dataReader["egpn18"].ToString());
-                    obj.egpn19 = Convert.ToDouble(dataReader["egpn19"].ToString());
-                    obj.egpn20 = Convert.ToDouble(dataReader["egpn20"].ToString());
-                    obj.egpn21 = Convert.ToDouble(dataReader["egpn21"].ToString());
-                    obj.egpn22 = Convert.ToDouble(dataReader["egpn22"].ToString());
-                    obj.egpn23 = Convert.ToDouble(dataReader["egpn23"].ToString());
-                    obj.egpn24 = Convert.ToDouble(dataReader["egpn24"].ToString());
-                    obj.egpn25 = Convert.ToDouble(dataReader["egpn25"].ToString());
-                    obj.egpn26 = Convert.ToDouble(dataReader["egpn26"].ToString());
-                    obj.egpn27 = Convert.ToDouble(dataReader["egpn27"].ToString());
-                    obj.egpn28 = Convert.ToDouble(dataReader["egpn28"].ToString());
-                    obj.egpn29 = Convert.ToDouble(dataReader["egpn29"].ToString());
-                    obj.egpn30 = Convert.ToDouble(dataReader["egpn30"].ToString());
-                    obj.egpn31 = Convert.ToDouble(dataReader["egpn31"].ToString());
+                    obj.Descripcion = dataReader["Descripcion"].ToString();
+                    obj.Suma = Convert.ToDouble(dataReader["Suma"].ToString());
+                    obj.cuenta =Convert.ToInt32(dataReader["Cuenta"].ToString());
                     objList.Add(obj);
                 }
             }

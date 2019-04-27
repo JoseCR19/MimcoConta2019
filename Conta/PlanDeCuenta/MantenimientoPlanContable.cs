@@ -14,13 +14,16 @@ namespace Conta.PlanDeCuenta
 {
     public partial class MantenimientoPlanContable : Form
     {
+        String codigoSolicita = "";
+        RegistroCompras.AsientoCCompra formAsientoC;
         List<CuentaContable> objListaCuentaContable = new List<CuentaContable>();
         List<CuentaContable> objListaBusquedaCuenta = new List<CuentaContable>();
         List<CuentaContable> objListaBusquedaDescripcion = new List<CuentaContable>();
-        List<CuentaContable> objListaCuentaContableTotal = new List<CuentaContable>();
+        public static List<CuentaContable> objListaCuentaContableTotal = new List<CuentaContable>();
         public static CuentaContable objCuentaContable;
         CuentaContableDAO objCCuentaDAO = new CuentaContableDAO();
-        public MantenimientoPlanContable()
+        int index = 0;
+        public MantenimientoPlanContable(String SolicitaCod)
         {
             InitializeComponent();
             this.ControlBox = false;
@@ -28,6 +31,8 @@ namespace Conta.PlanDeCuenta
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(50, 20);
             objCuentaContable = new CuentaContable();
+            formAsientoC = RegistroCompras.AsientoCCompra.formAsientoCompra;
+            codigoSolicita = SolicitaCod;
             gridParams();
             objListaCuentaContable= objCCuentaDAO.getListaCuentaContable();
             objListaCuentaContableTotal = objListaCuentaContable;
@@ -35,6 +40,15 @@ namespace Conta.PlanDeCuenta
             grd_CuentaContable.Refresh();
             txt_Busqueda.TextChanged += Txt_Busqueda_TextChanged;
             grd_CuentaContable.CellDoubleClick += Grd_CuentaContable_CellDoubleClick;
+            if(codigoSolicita=="V")
+            {
+                btn_Nuevo.Visible = false;
+            }
+            else if(codigoSolicita == "N")
+            {
+                btn_Nuevo.Enabled = true;
+            }
+
         }
 
         private void Grd_CuentaContable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -106,6 +120,20 @@ namespace Conta.PlanDeCuenta
             PlanContable check = new PlanContable("N");
             check.Show();
             this.Close();
+        }
+
+        private void grd_CuentaContable_DoubleClick(object sender, EventArgs e)
+        {
+            index = grd_CuentaContable.SelectedCells[0].RowIndex;
+            if(codigoSolicita=="V")
+            {
+                objCuentaContable = new CuentaContable();
+                objCuentaContable = objListaCuentaContableTotal[index];
+                formAsientoC.setSolicitaCuenta(objCuentaContable.Cuenta, objCuentaContable.Descripcion);
+                this.Close();
+
+
+            }
         }
     }
 }

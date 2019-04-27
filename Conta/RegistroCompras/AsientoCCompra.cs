@@ -2,6 +2,7 @@
 using ContaDTO;
 using System;
 using System.Collections.Generic;
+using Conta.PlanDeCuenta;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -15,6 +16,7 @@ namespace Conta.RegistroCompras
     public partial class AsientoCCompra : Form
     {
         public static DocumentoCab objDocumentoCab = new DocumentoCab();
+        public static AsientoCCompra formAsientoCompra;
         Asiento objAsiento;
         static int index;
         public static List<AsientoDetalle> objListaAsientoDetalle = new List<AsientoDetalle>();
@@ -25,6 +27,7 @@ namespace Conta.RegistroCompras
         {
             InitializeComponent();
             this.ControlBox = false;
+            formAsientoCompra = this;
             this.Text = "Asientos Contables";
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(50, 20);
@@ -84,6 +87,7 @@ namespace Conta.RegistroCompras
             cmb_Cuenta.SelectedValue = objAsientoDetalle.TipoImporte;
             cmb_Documento.SelectedValue = objAsientoDetalle.TipDocCodigo;
             txt_cuentadescripcion.Text = objAsientoDetalle.CuentaDescripcion.ToString();
+            txt_ot.Text = objAsientoDetalle.CodoOt.ToString();
             
         }
         public void gridParams()
@@ -269,7 +273,7 @@ namespace Conta.RegistroCompras
             objAsientoDetalle.TipDocCodigo = cmb_Documento.SelectedValue.ToString();
             objAsientoDetalle.TipoImporte = cmb_Cuenta.SelectedValue.ToString();
             objAsientoDetalle.TipoDoc = cmb_Documento.Text;
-            
+            objAsientoDetalle.CodoOt = txt_ot.Text;
             if (Operacion=="M")
             {
                 objListaAsientoDetalle[index] = objAsientoDetalle;
@@ -314,6 +318,20 @@ namespace Conta.RegistroCompras
             objListSumH = objListaAsientoDetalle;
             txt_Debe.Text = objListSumD.Where(x => x.TipoImporte == "D").Sum( y=> y.Importe).ToString();
             txt_Haber.Text = objListSumH.Where(x => x.TipoImporte == "H").Sum(y => y.Importe).ToString();
+        }
+
+        private void txt_Cuenta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                PlanDeCuenta.MantenimientoPlanContable check = new PlanDeCuenta.MantenimientoPlanContable("V");
+                check.Show();
+            }
+        }
+        public void setSolicitaCuenta(String cuenta, String descripcion)
+        {
+            txt_Cuenta.Text = cuenta;
+            txt_cuentadescripcion.Text = descripcion;
         }
     }
 }

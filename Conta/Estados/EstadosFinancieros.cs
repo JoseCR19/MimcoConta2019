@@ -19,6 +19,7 @@ namespace Contabilidad.Estados
     public partial class EstadosFinancieros : Form
     {
         public static List<EstadoGananciasPerdidasNaturaleza> objListEGPN = new List<EstadoGananciasPerdidasNaturaleza>();
+        EstadoGananciasPerdidasNaturaleza objn;
         public static List<EstadoGananciasPerdidasFunciones> objListEGPF = new List<EstadoGananciasPerdidasFunciones>();
         public static List<EstadoFlujoEfectivo> objListFE = new List<EstadoFlujoEfectivo>();
         AsientoDAO objAsientoDao;
@@ -26,6 +27,7 @@ namespace Contabilidad.Estados
         public EstadosFinancieros()
         {
             InitializeComponent();
+            objn = new EstadoGananciasPerdidasNaturaleza();
             cmbMes();
             cmbAnio();
             cmbEstado();
@@ -178,6 +180,8 @@ namespace Contabilidad.Estados
             if (cmb_estado.SelectedValue.ToString()=="01")
             {
                 objListEGPN = objAsientoDao.getEstadoGPNaturaleza(cmb_anio.SelectedValue.ToString(), cmb_Mes.SelectedValue.ToString());
+                //objListEGPN.Sort(objn.Desc);
+         
                 btn_excel.Enabled = false;
                 Reporte.GananciasPerdidasNaturaleza cr = new Reporte.GananciasPerdidasNaturaleza();
                 cr.SetDataSource(objListEGPN);

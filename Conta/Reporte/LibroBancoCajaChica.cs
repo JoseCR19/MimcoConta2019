@@ -16,14 +16,14 @@ namespace Contabilidad.Reporte {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class GananciasPerdidasNaturaleza : ReportClass {
+    public class LibroBancoCajaChica : ReportClass {
         
-        public GananciasPerdidasNaturaleza() {
+        public LibroBancoCajaChica() {
         }
         
         public override string ResourceName {
             get {
-                return "GananciasPerdidasNaturaleza.rpt";
+                return "LibroBancoCajaChica.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Contabilidad.Reporte {
         
         public override string FullResourceName {
             get {
-                return "Contabilidad.Reporte.GananciasPerdidasNaturaleza.rpt";
+                return "Contabilidad.Reporte.LibroBancoCajaChica.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace Contabilidad.Reporte {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedGananciasPerdidasNaturaleza : Component, ICachedReport {
+    public class CachedLibroBancoCajaChica : Component, ICachedReport {
         
-        public CachedGananciasPerdidasNaturaleza() {
+        public CachedLibroBancoCajaChica() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace Contabilidad.Reporte {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            GananciasPerdidasNaturaleza rpt = new GananciasPerdidasNaturaleza();
+            LibroBancoCajaChica rpt = new LibroBancoCajaChica();
             rpt.Site = this.Site;
             return rpt;
         }

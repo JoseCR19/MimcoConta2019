@@ -64,6 +64,7 @@
             this.btn_Cerrar = new System.Windows.Forms.Button();
             this.btn_SaveData = new System.Windows.Forms.Button();
             this.txt_cuentadescripcion = new System.Windows.Forms.TextBox();
+            this.txt_ot = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Facturas)).BeginInit();
@@ -262,6 +263,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txt_ot);
             this.panel2.Controls.Add(this.txt_cuentadescripcion);
             this.panel2.Controls.Add(this.cmb_Documento);
             this.panel2.Controls.Add(this.cmb_Cuenta);
@@ -389,6 +391,7 @@
             this.txt_Cuenta.Name = "txt_Cuenta";
             this.txt_Cuenta.Size = new System.Drawing.Size(116, 20);
             this.txt_Cuenta.TabIndex = 34;
+            this.txt_Cuenta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Cuenta_KeyDown);
             // 
             // label8
             // 
@@ -451,6 +454,14 @@
             this.txt_cuentadescripcion.Size = new System.Drawing.Size(400, 20);
             this.txt_cuentadescripcion.TabIndex = 51;
             // 
+            // txt_ot
+            // 
+            this.txt_ot.Enabled = false;
+            this.txt_ot.Location = new System.Drawing.Point(512, 92);
+            this.txt_ot.Name = "txt_ot";
+            this.txt_ot.Size = new System.Drawing.Size(98, 20);
+            this.txt_ot.TabIndex = 52;
+            // 
             // AsientoCCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,5 +521,6 @@
         private System.Windows.Forms.TextBox txt_descripcion;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txt_cuentadescripcion;
+        private System.Windows.Forms.TextBox txt_ot;
     }
 }

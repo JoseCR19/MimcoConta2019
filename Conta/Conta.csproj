@@ -249,6 +249,12 @@
       <DependentUpon>GananciasPerdidasNaturaleza.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reporte\LibroBancoCajaChica.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibroBancoCajaChica.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reporte\LibroComprasReportePdf.cs">
       <DependentUpon>LibroComprasReportePdf.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -400,6 +406,10 @@
     <EmbeddedResource Include="Reporte\GananciasPerdidasNaturaleza.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>GananciasPerdidasNaturaleza.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\LibroBancoCajaChica.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LibroBancoCajaChica.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\LibroComprasReportePdf.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

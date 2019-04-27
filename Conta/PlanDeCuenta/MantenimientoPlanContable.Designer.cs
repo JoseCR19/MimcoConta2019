@@ -45,6 +45,7 @@
             this.grd_CuentaContable.RowHeadersVisible = false;
             this.grd_CuentaContable.Size = new System.Drawing.Size(763, 353);
             this.grd_CuentaContable.TabIndex = 47;
+            this.grd_CuentaContable.DoubleClick += new System.EventHandler(this.grd_CuentaContable_DoubleClick);
             // 
             // label3
             // 

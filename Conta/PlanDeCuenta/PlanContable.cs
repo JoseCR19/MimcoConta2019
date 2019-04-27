@@ -170,7 +170,7 @@ namespace Conta.PlanDeCuenta
         }
         private void btn_Cerrar_Click(object sender, EventArgs e)
         {
-            MantenimientoPlanContable check = new MantenimientoPlanContable();
+            MantenimientoPlanContable check = new MantenimientoPlanContable("N");
             check.Show();
             this.Close();
         }

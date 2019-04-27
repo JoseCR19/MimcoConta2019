@@ -118,7 +118,7 @@ namespace Conta
         private void MantenimientoDePlanContableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mantenimientoDePlanContableToolStripMenuItem.Enabled = false;
-            PlanDeCuenta.MantenimientoPlanContable Check = new PlanDeCuenta.MantenimientoPlanContable();
+            PlanDeCuenta.MantenimientoPlanContable Check = new PlanDeCuenta.MantenimientoPlanContable("N");
             Check.Show();
         }
 
