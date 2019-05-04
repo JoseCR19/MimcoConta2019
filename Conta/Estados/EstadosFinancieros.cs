@@ -159,6 +159,10 @@ namespace Contabilidad.Estados
             objMes.Month = "Estado de flujo de efectivo";
             objMes.Value = "03";
             objListMes.Add(objMes);
+            objMes = new MesDTO();
+            objMes.Month = "Balance de Comprobación";
+            objMes.Value = "04";
+            objListMes.Add(objMes);
             cmb_estado.DisplayMember = "Month";
             cmb_estado.ValueMember = "Value";
             cmb_estado.DataSource = objListMes;
@@ -177,6 +181,7 @@ namespace Contabilidad.Estados
             String fileName = @"N:\contabilidad_ef\EstadoFinancieroNaturaleza" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
             String fileName2 = @"N:\contabilidad_ef\EstadoFinancieroFuncion" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
             String fileName3 = @"N:\contabilidad_ef\EstadoFlujoEfectivo" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
+            String fileName4 = @"N:\contabilidad_ef\BalanceComprobacion" + "-" + DateTime.Now.ToString("dd-MM-yyyy") + "-" + r.Next(1, 30) + ".xls";
             if (cmb_estado.SelectedValue.ToString()=="01")
             {
                 objListEGPN = objAsientoDao.getEstadoGPNaturaleza(cmb_anio.SelectedValue.ToString(), cmb_Mes.SelectedValue.ToString());
@@ -265,7 +270,35 @@ namespace Contabilidad.Estados
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
                 cr.Export();
                 btn_excel.Enabled = true;
+            }
+            else if (cmb_estado.SelectedValue.ToString()=="04")
+            {
+                //objListFE = objAsientoDao.getEstadoFlujoEfectivo(cmb_anio.SelectedValue.ToString(), cmb_Mes.SelectedValue.ToString());
+                btn_excel.Enabled = false;
+                Reporte.BalanceComprobacion cr = new Reporte.BalanceComprobacion();
+                //cr.SetDataSource(objListFE);
+                ExportOptions exportOpts = new ExportOptions();
+                ExcelFormatOptions excelFormatOpts = new ExcelFormatOptions();
+                DiskFileDestinationOptions diskOpts = new DiskFileDestinationOptions();
+                exportOpts = cr.ExportOptions;
 
+                // Set the excel format options.
+                excelFormatOpts.ExcelUseConstantColumnWidth = true;
+                excelFormatOpts.ExcelTabHasColumnHeadings = true;
+                excelFormatOpts.ShowGridLines = true;
+                excelFormatOpts.ExportPageBreaksForEachPage = true;
+                //excelFormatOpts.UsePageRange = true;
+
+                exportOpts.ExportFormatType = ExportFormatType.Excel;
+                exportOpts.FormatOptions = excelFormatOpts;
+
+                // Set the disk file options and export.
+                exportOpts.ExportDestinationType = ExportDestinationType.DiskFile;
+                diskOpts.DiskFileName = fileName4;
+                exportOpts.DestinationOptions = diskOpts;
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                cr.Export();
+                btn_excel.Enabled = true;
             }
         }
     }

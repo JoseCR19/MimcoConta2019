@@ -68,7 +68,6 @@ namespace Conta.RegistroPagos
             grd_Facturas.Refresh();
             grd_Facturas.CellClick += Grd_Facturas_CellClick;
         }
-
         private void Grd_Facturas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = grd_Facturas.SelectedCells[0].RowIndex;
@@ -81,7 +80,6 @@ namespace Conta.RegistroPagos
             cmb_Documento.SelectedValue = objAsientoDetalle.TipDocCodigo;
             txt_Descripccion.Text = objAsientoDetalle.Descripcion.ToString();
         }
-
         void cmbCuenta()
         {
             List<TipoCuenta> objListCuenta = new List<TipoCuenta>();
@@ -206,14 +204,12 @@ namespace Conta.RegistroPagos
             habilitaBoton(false, true);
             limpiaCampos();
         }
-
         private void btn_Editar_Click(object sender, EventArgs e)
         {
             Operacion = "M";
             habilitarCampos(true);
             habilitaBoton(false, true);
         }
-
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
             btn_SaveData.Enabled = false;
@@ -224,14 +220,10 @@ namespace Conta.RegistroPagos
             objAsiento.Fecha = txt_Fecha.Text;
             objAsiento.Haber = objAsientoDao.convertToDouble(txt_Haber.Text);
             objAsiento.MonedaCod = "PEN";
-
-
             objAsiento.TipoAsiento = txt_TipoAsiento.Text;
-
             insert = objAsientoDao.insertarAsientoCab(objAsiento);
             if (insert)
             {
-
             }
             else
             {
@@ -265,17 +257,14 @@ namespace Conta.RegistroPagos
             formAsient.Show();
             this.Close();
         }
-
         private void btn_Cerrar_Click(object sender, EventArgs e)
         {
             RegistrarVoucher formCaja = new RegistrarVoucher();
             formCaja.Show();
             this.Close();
         }
-
         private void btn_SaveData_Click(object sender, EventArgs e)
         {
-
             objAsientoDetalle = new AsientoDetalle();
             objAsientoDetalle.Anexo = objVoucher.SolicitaCod;
             objAsientoDetalle.Correlativo = txt_Correlativo.Text;
@@ -289,7 +278,6 @@ namespace Conta.RegistroPagos
             objAsientoDetalle.TipDocCodigo = cmb_Documento.SelectedValue.ToString();
             objAsientoDetalle.TipoImporte = cmb_Cuenta.SelectedValue.ToString();
             objAsientoDetalle.TipoDoc = cmb_Documento.Text;
-
             if (Operacion == "M")
             {
                 objListaAsientoDetalle[index] = objAsientoDetalle;

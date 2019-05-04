@@ -225,6 +225,12 @@
     <Compile Include="ReporteView.Designer.cs">
       <DependentUpon>ReporteView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\BalanceComprobacion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BalanceComprobacion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reporte\BalanceGeneral.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -390,6 +396,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteView.resx">
       <DependentUpon>ReporteView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\BalanceComprobacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BalanceComprobacion.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\BalanceGeneral.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
